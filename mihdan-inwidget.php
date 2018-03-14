@@ -1,7 +1,8 @@
 <?php
 /**
  * Plugin Name: Mihdan: InWidget
- * Version: 1.0.1
+ * Description: Плагин для транслирования ваших фотографий из Instagram прямо на вашем сайте
+ * Version: 1.2.1
  * GitHub Plugin URI: https://github.com/mihdan/mihdan-inwidget
  *
  * @package mihdan_inwidget
@@ -18,7 +19,14 @@ if ( ! class_exists( 'Mihdan_Inwidget' ) ) {
 	 * Class Mihdan_Inwidget
 	 */
 	class Mihdan_Inwidget {
+		/**
+		 * @var string слюг плагина
+		 */
 		protected $slug = 'mihdan_inwidget';
+
+		/**
+		 * @var null экземпляр класса
+		 */
 		protected static $instance = null;
 
 		public function __construct() {}
@@ -43,12 +51,12 @@ if ( ! class_exists( 'Mihdan_Inwidget' ) ) {
 		public function shortcode( $atts ) {
 
 			$atts = shortcode_atts( array(
-				'width'  => 310,
-				'height' => 285,
+				'width'   => 310,
+				'height'  => 285,
 				'toolbar' => 'true',
 				'preview' => 'small',
-				'view' => 8,
-				'inline' => 4,
+				'view'    => 8,
+				'inline'  => 4,
 			), $atts );
 
 			return vsprintf( '<iframe frameborder="0" scrolling="no" src="%svendor/inwidget/index.php?toolbar=%s&preview=%s&view=%d&inline=%d&width=%d" width="%d" height="%d" ></iframe>', array(
